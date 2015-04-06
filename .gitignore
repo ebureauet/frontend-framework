@@ -1,0 +1,14 @@
+.DS_Store
+profile
+.sass-cache
+.sublime-project
+.sublime-workspace
+npm-debug.log
+node_modules
+bower_components
+build
+src/*.html
+src/default.css
+src/js/main.min.js
+src/css
+src/index.html
