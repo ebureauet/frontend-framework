@@ -13,7 +13,6 @@ var gulp = require('gulp'),
   htmlhint = require('gulp-htmlhint'),
   del = require('del');
 
-
 // Compile SASS
 gulp.task('sass', function() {
   return gulp.src('./src/scss/{,*/}*.{scss,sass}')
@@ -32,7 +31,7 @@ gulp.task('sass', function() {
 // HTML include system
 gulp.task('html', function() {
   return gulp.src('src/html/templates/*.html')
-   .pipe(fileinclude({
+    .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file',
     }))
@@ -60,6 +59,16 @@ gulp.task('sass-build', function() {
     .pipe(gulp.dest('./build/css/'))
 });
 
+//look for suspicious html coding
+gulp.task('html-lint', function(){
+  return gulp.src(['src/*.html'])
+    .pipe(htmlhint())
+    .pipe(htmlhint.reporter())
+    .on("error", function(err) {
+      notifyError("", "HTML")
+    })
+});
+
 //Copy assets to Build folder
 gulp.task('copy-assets', function(){
   return gulp.src(['src/*.html', 'src/fonts/**', 'src/js/lib/**'], {base: "./src"})
@@ -70,12 +79,6 @@ gulp.task('clean', function (cb) {
   del('build', cb);
 });
 
-// Create Gulp Default Task
-// ------------------------
-// Having watch within the task ensures that 'sass' has already ran before watching
-//
-// This setup is slightly different from the one on the blog post at
-// http://www.zell-weekeat.com/gulp-libsass-with-susy/#comment-1910185635
 gulp.task('default', ['sass'], function () {
   gulp.watch('./src/scss/{,*/}*.{scss,sass}', ['sass'])
 });
