@@ -1,10 +1,10 @@
-## E-bureauet Website Starter
+# E-bureauet Website Starter
 
 This is a starter project template for use by E-bureauet frontend developers.
 
 ## Tools
 
-# Development
+### Development
 
 1. LibSass (NodeJS CSS Preprocessor)
 2. Browserify
@@ -15,7 +15,7 @@ This is a starter project template for use by E-bureauet frontend developers.
 6. Image Compression tools7
 7. BrowserSync
 
-# Production
+### Production
 
 1. Susy + Breakpoint (Grid System)
 2. Jquery
