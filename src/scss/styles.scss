@@ -3,18 +3,47 @@
 @import "./bower_components/breakpoint-sass/stylesheets/breakpoint";
 
 //BREAKPOINTS
-$xs : 320;
-$sm : 720;
-$md : 992;
-$lg : 1200;
+$us : 0px 320px;
+$xs : 320px 720px;
+$sm : 720px 992px;
+$md : 992px 1200px;
+$lg : 1200px 1600px;
 
 $susy: (
   columns: 12,
-  container: 1140px,
+  container: auto,
   gutters: 0.25,
-  global-box-sizing: border-box,
-  debug: (image: show-columns)
+  gutter-position: inside,
+  global-box-sizing: content-box,
+  debug: (image: hide)
   );
+
+// $susy: (
+//   flow: ltr,
+//   math: fluid,
+//   output: float,
+//   gutter-position: after,
+//   container: auto,
+//   container-position: center,
+//   columns: 4,
+//   gutters: .25,
+//   column-width: false,
+//   global-box-sizing: content-box,
+//   last-flow: to,
+//   debug: (
+//     image: hide,
+//     color: rgba(#66f, .25),
+//     output: background,
+//     toggle: top right,
+//   ),
+//   use-custom: (
+//     background-image: true,
+//     background-options: false,
+//     box-sizing: true,
+//     clearfix: false,
+//     rem: true,
+//   )
+// );
 
 .testing {
   @include span(12);
@@ -22,16 +51,30 @@ $susy: (
 
 .testing2 {
   @include span(2);
-  margin-left: span(4);
 }
 
 .page {
-  @include span(12);
-  margin-left: span(6);
-  @include breakpoint(md) {
-    @include span(4);
-    margin-left: span(3);
+  @include container;
+  .content{
+    @include span(8);
+    @include breakpoint($us){
+      @include span(12);
+    }
+    @include breakpoint($xs){
+      @include span(8);
+    }
   }
+  .aside{
+    @include span(4);
+    @include breakpoint($us){
+      @include span(12);
+    }
+    @include breakpoint($xs){
+      @include span(4);
+    }
+  }
+
+
 }
 
 /*-- added comment --*/
