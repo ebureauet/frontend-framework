@@ -7,14 +7,15 @@ This is a starter project template for use by E-bureauet frontend developers.
 ### Development
 
 1. LibSass (NodeJS CSS Preprocessor)
-2. Susy + Breakpoint (Grid System)
-3. Browserify
-4. HTML File Includes
-5. Source Maps
-6. Minify CSS, Uglify JS
-7. JSHint, HTMLhint, CSSLint
-8. Image Compression tools7
-9. BrowserSync
+2. Bootstrap-Sass
+3. Susy + Breakpoint (Grid System optional)
+4. Browserify
+5. HTML File Includes
+6. Source Maps
+7. Minify CSS, Uglify JS
+8. JSHint, HTMLhint, CSSLint
+9. Image Compression tools7
+10. BrowserSync
 
 ### Production
 
