@@ -20,11 +20,11 @@ gulp.task('sass', function() {
     .pipe(sass({
       errLogToConsole: true
     }))
-    .pipe(sourcemaps.write())
     .pipe(autoprefixer({
       browsers: ['ie 9', 'Android 3', 'firefox 20', 'last 2 versions'],
       cascade: true
     }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./src/css/'));
 })
 

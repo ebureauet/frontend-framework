@@ -1,0 +1,45 @@
+@import "../bower_components/susy/sass/susy";
+@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
+
+//BREAKPOINTS
+$us : 0px 320px;
+$xs : 320px 720px;
+$sm : 720px 992px;
+$md : 992px 1200px;
+$lg : 1200px 1600px;
+
+$susy: (
+  columns: 12,
+  container: auto,
+  gutters: 0.25,
+  gutter-position: inside,
+  global-box-sizing: content-box,
+  debug: (image: hide)
+  );
+
+// $susy: (
+//   flow: ltr,
+//   math: fluid,
+//   output: float,
+//   gutter-position: after,
+//   container: auto,
+//   container-position: center,
+//   columns: 4,
+//   gutters: .25,
+//   column-width: false,
+//   global-box-sizing: content-box,
+//   last-flow: to,
+//   debug: (
+//     image: hide,
+//     color: rgba(#66f, .25),
+//     output: background,
+//     toggle: top right,
+//   ),
+//   use-custom: (
+//     background-image: true,
+//     background-options: false,
+//     box-sizing: true,
+//     clearfix: false,
+//     rem: true,
+//   )
+// );

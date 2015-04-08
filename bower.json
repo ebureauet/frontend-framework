@@ -14,7 +14,8 @@
   ],
   "dependencies": {
     "breakpoint-sass": "~2.5.0",
-    "susy": "~2.2.2"
+    "susy": "~2.2.2",
+    "bootstrap-sass": "~3.3.4"
   },
   "devDependencies": {
     "breakpoint-sass": "~2.5.0"
