@@ -7,11 +7,22 @@ var gulp = require('gulp'),
   runSequence = require('run-sequence'),
   minifyCSS = require('gulp-minify-css'),
   uglify = require('gulp-uglify'),
+  notify = require('gulp-notify'),
   autoprefixer = require('gulp-autoprefixer'),
   sourcemaps = require('gulp-sourcemaps'),
   fileinclude = require('gulp-file-include'),
   htmlhint = require('gulp-htmlhint'),
   del = require('del');
+
+var notifyError = function(err, lang) {
+  console.log(err);
+  notify.onError({
+    title: lang + " error",
+    // subtitle: "Error!",
+    message: "Check console",
+    sound: "Basso"
+  })(err);
+};
 
 // Compile SASS
 gulp.task('sass', function() {
@@ -38,7 +49,7 @@ gulp.task('html', function() {
     .on("error", function(err) {
       notifyError(err, "HTML")
     })
-   .pipe(gulp.dest('src/'))
+   .pipe(gulp.dest('src/'));
    //.pipe(reload({stream:true}));
 });
 
@@ -56,7 +67,21 @@ gulp.task('sass-build', function() {
       cascade: false
     }))
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./build/css/'))
+    .pipe(gulp.dest('./build/css/'));
+});
+
+// Scripts browserify
+gulp.task('scripts', function() {
+  return browserify('./src/js/main.js', { debug: true })
+    .bundle()
+    .on("error", function(err) {
+      notifyError(err, "JS")
+    })
+    .pipe(source('main.min.js'))
+    .pipe(buffer())
+    //.pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
+    .pipe(gulp.dest('src/js'));
+    //.pipe(reload({stream:true}));
 });
 
 //look for suspicious html coding
