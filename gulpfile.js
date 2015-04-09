@@ -12,6 +12,7 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   fileinclude = require('gulp-file-include'),
   htmlhint = require('gulp-htmlhint'),
+  imagemin = require('gulp-imagemin'),
   del = require('del');
 
 var notifyError = function(err, lang) {
@@ -84,6 +85,29 @@ gulp.task('scripts', function() {
     //.pipe(reload({stream:true}));
 });
 
+// Static Server + watching scss/html files
+gulp.task('serve', ['sass','html'], function() {
+    browserSync({
+        server: "./src"
+    });
+
+    gulp.watch("src/scss/*.scss", ['sass','']);
+    gulp.watch("src/html/**/*.html", ['html']).on('change', reload);
+});
+
+//browser-sync task
+/*
+gulp.task('serve', function() {
+  browserSync({
+    server: {
+      baseDir: "src/",
+    },
+    open: false,
+    ghostMode: false
+  });
+});
+*/
+
 //look for suspicious html coding
 gulp.task('html-lint', function(){
   return gulp.src(['src/*.html'])
@@ -92,6 +116,13 @@ gulp.task('html-lint', function(){
     .on("error", function(err) {
       notifyError("", "HTML")
     })
+});
+
+//process images for optimization
+gulp.task('img-optim', function () {
+    return gulp.src('src/img/**')
+      .pipe(imagemin())
+      .pipe(gulp.dest('build/img/'));
 });
 
 //Copy assets to Build folder

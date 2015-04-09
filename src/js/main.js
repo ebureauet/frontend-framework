@@ -1,8 +1,5 @@
-//js imports
-//require('jquery');
+//These scripts will be bundled
 
-//carousel
 require('./general/carousel.js');
 
-//custom scripts
 require('./general/custom.js');
