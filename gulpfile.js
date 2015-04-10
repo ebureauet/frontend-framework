@@ -132,9 +132,16 @@ gulp.task('iconfont', function(){
       fontPath: '../fonts/icons/'
     }))
     .pipe(iconfont({
-      fontName: fontName
+      fontName: fontName,
+      normalize: true,
+      fontHeight: 1010
      }))
     .pipe(gulp.dest('src/fonts/icons/'));
+});
+
+//handle svg icon fonts and scss requirements for it
+gulp.task('iconscss', function(callback) {
+  runSequence('iconfont', 'sass', 'html');
 });
 
 //process images for optimization

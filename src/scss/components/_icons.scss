@@ -37,9 +37,6 @@
 	@if $filename == test5 {
 		$char: "\E005";
 	}
-	@if $filename == test6 {
-		$char: "\E006";
-	}
 
 	@return $char;
 }
@@ -65,7 +62,4 @@
 }
 .icon-test5 {
 	@include icon(test5);
-}
-.icon-test6 {
-	@include icon(test6);
 }

@@ -11,4 +11,5 @@ src/*.html
 src/default.css
 src/js/main.min.js
 src/css
+src/fonts/icons
 src/index.html
