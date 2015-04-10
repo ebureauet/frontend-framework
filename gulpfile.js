@@ -13,6 +13,8 @@ var gulp = require('gulp'),
   fileinclude = require('gulp-file-include'),
   htmlhint = require('gulp-htmlhint'),
   imagemin = require('gulp-imagemin'),
+  iconfont = require('gulp-iconfont'),
+  iconfontcss = require('gulp-iconfont-css'),
   del = require('del');
 
 var notifyError = function(err, lang) {
@@ -24,6 +26,8 @@ var notifyError = function(err, lang) {
     sound: "Basso"
   })(err);
 };
+
+var fontName = 'Icons';
 
 // Compile SASS
 gulp.task('sass', function() {
@@ -116,6 +120,21 @@ gulp.task('html-lint', function(){
     .on("error", function(err) {
       notifyError("", "HTML")
     })
+});
+
+//create svg icon fonts
+gulp.task('iconfont', function(){
+  gulp.src(['src/svg/*.svg'])
+    .pipe(iconfontcss({
+      fontName: fontName,
+      path: './node_modules/gulp-iconfont-css/templates/_icons.scss',
+      targetPath: '../../scss/components/_icons.scss',
+      fontPath: '../fonts/icons/'
+    }))
+    .pipe(iconfont({
+      fontName: fontName
+     }))
+    .pipe(gulp.dest('src/fonts/icons/'));
 });
 
 //process images for optimization

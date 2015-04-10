@@ -31,6 +31,7 @@ This is a starter project template for use by E-bureauet frontend developers.
 * GitBash or GitShell Command Line Interfaces [download gitbash](http://git-scm.com/downloads) [download gitshell (also has windows gui of github)](https://windows.github.com/index.html)
 * Ruby 2.1.5+ [download link](http://rubyinstaller.org/downloads/)
 * Sass [download link](http://sass-lang.com/install)
+
 If you are having security errors installing sass, try entering this:
 ~~~
 gem source -a http://rubygems.org/
