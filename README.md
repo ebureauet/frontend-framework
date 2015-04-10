@@ -6,7 +6,7 @@ This is a starter project template for use by E-bureauet frontend developers.
 
 ### Development
 
-1. LibSass (NodeJS CSS Preprocessor)
+1. LibSass (NodeJS CSS Preprocessor, alternative to the ruby powered sass)
 2. Bootstrap-Sass
 3. Susy + Breakpoint (Grid System optional)
 4. Browserify
@@ -27,18 +27,23 @@ This is a starter project template for use by E-bureauet frontend developers.
 
 ### System Requirements:
 
-1. Install node.js
-2. Install ruby 2.1.5+
-3. Install sass
-4. Install phyton (required for browsersync)
-5. Install Visual Studio 2013 update 4 (required for browsersync)
+* Node.js [download link](https://nodejs.org/download/)
+* GitBash or GitShell Command Line Interfaces [download gitbash](http://git-scm.com/downloads) [download gitshell (also has windows gui of github)](https://windows.github.com/index.html) (terminal/commandline interfaces)
+* Ruby 2.1.5+ [download link](http://rubyinstaller.org/downloads/)
+* Sass [download link](http://sass-lang.com/install)
+If you are having security errors installing sass, try entering this:
+~~~
+gem source -a http://rubygems.org/
+~~~
+* Phyton [download link](https://www.python.org/downloads/) (required for browsersync)
+* Visual Studio 2013 update 4 (required for browsersync and libsass)
 
 ### Setting Up Local Repository
 
 1. Clone the repository
 
 ~~~
-git clone https://github.com/teej043/website-starter.git
+$ git clone https://github.com/teej043/website-starter.git
 ~~~
 
 2. Install Node dependencies
