@@ -23,9 +23,9 @@ This is a starter project template for use by E-bureauet frontend developers.
 2. Normalize (CSS Reset)
 3. OwlCarousel (Slideshows, Carousels)
 
-### Project Setup  
+## Project Setup  
 
-## System Requirements:
+### System Requirements:
 
 1. Install node.js
 2. Install ruby 2.1.5+
@@ -33,7 +33,7 @@ This is a starter project template for use by E-bureauet frontend developers.
 4. Install phyton (required for browsersync)
 5. Install Visual Studio 2013 update 4 (required for browsersync)
 
-## Setting Up Local Repository
+### Setting Up Local Repository
 
 1. Clone the repository
 
