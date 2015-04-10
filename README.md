@@ -23,10 +23,19 @@ This is a starter project template for use by E-bureauet frontend developers.
 2. Normalize (CSS Reset)
 3. OwlCarousel (Slideshows, Carousels)
 
+### Project Setup  
 
-## Project Setup  
+## System Requirements:
 
-1. Clone the repo
+1. Install node.js
+2. Install ruby 2.1.5+
+3. Install sass
+4. Install phyton (required for browsersync)
+5. Install Visual Studio 2013 update 4 (required for browsersync)
+
+## Setting Up Local Repository
+
+1. Clone the repository
 
 ~~~
 git clone https://github.com/teej043/website-starter.git
