@@ -1,18 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Creator: CorelDRAW X6 -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="500px" height="571px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 542 640"
- xmlns:xlink="http://www.w3.org/1999/xlink">
- <defs>
-  <style type="text/css">
-   <![CDATA[
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg2"
+   viewBox="0 0 1013 726"
+   style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+   version="1.1"
+   height="500px"
+   width="692px"
+   xml:space="preserve"><metadata
+     id="metadata14"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs4"><style
+       id="style6"
+       type="text/css"><![CDATA[
     .fil0 {fill:black}
-   ]]>
-  </style>
- </defs>
- <g id="Layer_x0020_1">
-  <metadata id="CorelCorpID_0Corel-Layer"/>
-  <path class="fil0" d="M42 640l459 0c5,-3 11,-4 16,-7 15,-9 24,-24 25,-42 1,-29 0,-61 0,-90l0 -361c0,-30 1,-60 0,-90 -1,-19 -9,-34 -24,-43 -5,-3 -12,-4 -17,-7l-459 0c-5,3 -12,4 -17,7 -15,9 -23,24 -24,43 -1,30 0,60 0,90l0 361c0,29 -1,61 0,90 1,14 5,25 12,32 14,14 20,12 29,17zm354 -222l47 0 0 -47 -47 0 0 47zm48 98l0 -48 -48 0 -1 48 48 -1zm-49 -195l49 0 0 -48 -49 0 0 49zm-148 98l0 -47 -146 0 0 47 12 0 135 0zm-148 98c9,2 182,1 196,1 0,-12 1,-39 -1,-49l-195 0 0 48zm0 -196l5 0 3 0 240 0 -1 -49 -246 0 0 49zm23 -196c-16,2 -23,12 -23,29 0,20 -2,32 12,41 12,8 81,4 100,4l209 0c15,-2 22,-13 22,-29 0,-55 -10,-44 -113,-44 -16,0 -198,-1 -208,0zm-71 467l442 0c2,-11 1,-428 1,-473 0,-15 2,-57 -1,-68l-442 0c-2,9 0,429 0,473 0,15 -2,57 1,68z"/>
- </g>
-</svg>
+   ]]></style></defs><g
+     id="g3343"><g
+       id="g3355" /></g><path
+     id="path3364"
+     transform="matrix(1.4638728,0,0,1.4638728,0,-2.9681977)"
+     d="M 515 37.396484 C 465.85139 37.417326 404.62204 56.995159 330.38281 93.929688 C 263.79427 418.61322 100.7123 166.93672 30.035156 75.908203 L 28.833984 472.36719 L 285.93164 343.81836 C 419.00243 484.0668 535.87406 446.13892 649.95117 377.45703 L 664.36914 210.46484 C 645.27102 91.653549 596.91437 37.361746 515 37.396484 z M 513.61523 64.103516 C 529.77319 64.086618 537.02148 66.298828 537.02148 66.298828 C 537.02148 66.298828 453.45155 93.969754 418.08398 123.96484 C 328.58259 194.21163 348.8611 246.46265 359.21484 316.1875 C 346.41006 306.0378 324.17663 286.57487 326.77734 238.09766 C 329.3169 190.76033 332.78559 150.39605 362.82031 109.54883 C 362.82031 109.54883 397.65995 79.513888 474.54883 67.5 C 491.01827 64.92665 503.92046 64.113654 513.61523 64.103516 z M 559.36328 92.873047 C 562.3107 92.917593 564.91471 93.253906 567.05469 93.929688 C 589.88107 101.13802 600.69357 161.20789 588.67969 167.21484 C 576.6658 173.22179 487.76367 133.57617 487.76367 133.57617 C 470.34354 119.4223 530.87161 92.442431 559.36328 92.873047 z M 463.73633 158.80469 C 605.50023 226.08247 591.08333 173.22069 605.5 227.2832 C 619.91667 281.3457 593.4872 369.04688 512.99414 369.04688 C 432.50109 369.04688 373.6315 334.2066 380.83984 282.54688 C 388.04818 230.88714 463.73633 158.80469 463.73633 158.80469 z "
+     style="fill:#782121;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /></svg>
