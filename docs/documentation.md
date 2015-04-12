@@ -6,7 +6,7 @@ E-bureauet Website Starter is a frontend foundation for web projects that is bui
 
 ## TL;DR
 
-It automates your workflow by taking away the development tools (run them in the background) while you focus on your project objectives.
+It automates your workflow by taking away the development tools (run them in the background) while you focus on your project content and objectives.
 
 ## Why use the Website Starter
 
@@ -43,6 +43,6 @@ From the emergence of Flat UI designs and higher mobile display resolutions (ret
 
 So I added an ability to the workflow to generate icon fonts easily, all you need to do is obtain or create your .svg files and put them to the svg folder. The build system will handle the process of combining these svg files into web font formats ('woff', 'ttf', 'eot') and generate the .scss file to create classes ('.icon--logo') making it easily available for you when you want to use them in your html page.
 
-### Concurrent testing on devices
+### Multi-Device Testing
 
 Allows you to see the changes concurrently on every browsers and devices (other computers, iPad, smartphones) accessing the webpage you're working on.
