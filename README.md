@@ -28,16 +28,20 @@ This is a starter project template for use by E-bureauet frontend developers.
 ### System Requirements:
 
 * Node.js [download link](https://nodejs.org/download/)
-* GitBash or GitShell Command Line Interfaces [download gitbash](http://git-scm.com/downloads) [download gitshell (also has windows gui of github)](https://windows.github.com/index.html)
+* Git Commandline Tools
+  * GitBash [download gitbash](http://git-scm.com/downloads)
+  * GitShell [download gitshell (also has windows gui of github)](https://windows.github.com/index.html)
+* Phyton [download link](https://www.python.org/downloads/) (required for browsersync)
+* Visual Studio 2013 update 4 (required for browsersync and libsass)
+* Install Node-GYP (required by libsass)
+~~~
+$ npm install -g node-gyp
+~~~
 
 If you are having security errors installing sass, try entering this:
 ~~~
 gem source -a http://rubygems.org/
 ~~~
-
-For windows machine users:
-* Phyton [download link](https://www.python.org/downloads/) (required for browsersync)
-* Visual Studio 2013 update 4 (required for browsersync and libsass)
 
 ### Setting Up Local Repository
 
