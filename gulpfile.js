@@ -29,7 +29,6 @@ var notifyError = function(err, lang) {
 
 var fontName = 'Icons';
 
-// Compile SASS
 gulp.task('sass', function() {
   return gulp.src('./src/scss/{,*/}*.{scss,sass}')
     .pipe(sourcemaps.init())
@@ -44,7 +43,6 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./src/css/'));
 })
 
-// HTML include system
 gulp.task('html', function() {
   return gulp.src('src/html/templates/*.html')
     .pipe(fileinclude({
@@ -58,7 +56,6 @@ gulp.task('html', function() {
    //.pipe(reload({stream:true}));
 });
 
-// CSS Production Build
 gulp.task('sass-build', function() {
   return gulp.src('./src/scss/{,*/}*.{scss,sass}')
     .pipe(sass({
@@ -75,7 +72,6 @@ gulp.task('sass-build', function() {
     .pipe(gulp.dest('./build/css/'));
 });
 
-// Scripts browserify
 gulp.task('scripts', function() {
   return browserify('./src/js/main.js', { debug: true })
     .bundle()
@@ -89,17 +85,16 @@ gulp.task('scripts', function() {
     //.pipe(reload({stream:true}));
 });
 
-// Static Server + watching scss/html files
 gulp.task('serve', ['sass','html'], function() {
     browserSync({
         server: "./src"
     });
-
+    gulp.watch("src/js/main.js",['scripts']);
     gulp.watch("src/scss/*.scss", ['sass','']);
     gulp.watch("src/html/**/*.html", ['html']).on('change', reload);
 });
 
-//browser-sync task
+
 /*
 gulp.task('serve', function() {
   browserSync({
@@ -112,7 +107,6 @@ gulp.task('serve', function() {
 });
 */
 
-//look for suspicious html coding
 gulp.task('html-lint', function(){
   return gulp.src(['src/*.html'])
     .pipe(htmlhint())
@@ -122,7 +116,6 @@ gulp.task('html-lint', function(){
     })
 });
 
-//create svg icon fonts
 gulp.task('iconfont', function(){
   gulp.src(['src/svg/*.svg'])
     .pipe(iconfontcss({
@@ -139,19 +132,16 @@ gulp.task('iconfont', function(){
     .pipe(gulp.dest('src/fonts/icons/'));
 });
 
-//handle svg icon fonts and scss requirements for it
 gulp.task('iconscss', function(callback) {
   runSequence('iconfont', 'sass', 'html');
 });
 
-//process images for optimization
 gulp.task('img-optim', function () {
-    return gulp.src('src/img/**')
-      .pipe(imagemin())
-      .pipe(gulp.dest('build/img/'));
+  return gulp.src('src/img/**')
+    .pipe(imagemin())
+    .pipe(gulp.dest('build/img/'));
 });
 
-//Copy assets to Build folder
 gulp.task('copy-assets', function(){
   return gulp.src(['src/*.html', 'src/fonts/**', 'src/js/lib/**'], {base: "./src"})
     .pipe(gulp.dest('build'));
@@ -161,10 +151,12 @@ gulp.task('clean', function (cb) {
   del('build', cb);
 });
 
-gulp.task('default', ['sass'], function () {
-  gulp.watch('./src/scss/{,*/}*.{scss,sass}', ['sass'])
+gulp.task('default', function () {
+  gulp.watch('./src/scss/{,*/}*.{scss,sass}', ['sass']);
+  gulp.watch('src/html/**/*.html', ['html']);
+  gulp.watch(['src/main.js','src/js/**/*.js'], ['scripts']);
 });
 
 gulp.task('build', function(callback) {
-  runSequence('clean', 'html', 'sass-build', 'copy-assets');
+  runSequence('clean', 'html', 'sass-build', 'copy-assets', 'img-optim');
 });
