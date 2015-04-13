@@ -13,9 +13,12 @@ This is a starter project template for use by E-bureauet frontend developers.
 5. HTML File Includes
 6. Source Maps
 7. Minify CSS, Uglify JS
-8. JSHint, HTMLhint, CSSLint
-9. Image Compression tools7
-10. BrowserSync
+8. Autoprefix CSS
+9. Image Compression Tools
+10. JSHint, HTMLhint, CSSLint
+11. Icon Font Generation
+12. BrowserSync
+13. Notifier
 
 ### Production
 
@@ -38,22 +41,23 @@ This is a starter project template for use by E-bureauet frontend developers.
 $ npm install -g node-gyp
 ~~~
 
+### Starting Your New Project
+
+If you wish to use this as a foundation to your new project then you will need to fork this repository, by doing so it will create a copy of this repository on your github account (note: the cloned repository will be open to public), at this point you should rename the cloned repository to a new name of your project.
+
+If you want to contribute and help me improve this 'Website Starter' project. Just clone this repository to your local without forking and ask a request to make you an authorized contributor, so you can write changes to this repo.
+
 ### Setting Up Local Repository
 
-1. Clone the repository
-
+1. Clone your new project repository (copy url from the 'HTTPS clone URL' on the github sidebar)
 ~~~
-$ git clone https://github.com/teej043/website-starter.git
+$ git clone https://github.com/teej043/your-new-project.git
 ~~~
-
 2. Install Node dependencies
-
 ~~~
 $ npm install
 ~~~
-
 3. Install Bower dependencies
-
 ~~~
 $ bower install
 ~~~
