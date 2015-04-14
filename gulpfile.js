@@ -132,7 +132,7 @@ gulp.task('iconfont', function(){
     .pipe(gulp.dest('src/fonts/icons/'));
 });
 
-gulp.task('iconscss', function(callback) {
+gulp.task('makeicons', function(callback) {
   runSequence('iconfont', 'sass', 'html');
 });
 
