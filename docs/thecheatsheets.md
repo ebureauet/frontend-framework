@@ -3,12 +3,13 @@
 ## Things To Remember
 * You input your commands using terminal or shell interface such as GitBash or GitShell.
 * (this is what most beginners always forgets) Make sure your command prompt is at your correct project path where its followed by 'master'. See example below:
-in Unix style, (gitbash/cygwin terminal) command prompts are like this:
+
+In Unix style, (gitbash/cygwin terminal) command prompts are like this:
 ~~~
 OWNER@COMPUTERNAME-PC /D/projects/myproject (master)
 $ _
 ~~~
-in Windows (powershell/gitshell) style, command prompts are like this
+In Windows (powershell/gitshell) style, command prompts are like this
 ~~~
 D:\projects\myproject [master]> _
 ~~~
@@ -18,7 +19,7 @@ D:\projects\myproject [master]> _
 
 ### GIT
 
-Note: These are mostly basic git commands are only which I find using frequently. These commands have variations that does same thing with slight configuration. In the long run we will update this list with more advanced commands as we go along using them.
+Note: These are mostly basic git commands which I find using frequently and is enough for modifying and updating scenarios. These commands have variations that does same thing with slight configuration. In the long run we will update this list with more advanced commands as we go along using them.
 
 To see current information about your working folder, it shows if you have new files, modified files or deleted files.
 ~~~
@@ -58,4 +59,19 @@ $ git branch
 To switch to another branch, e.g: 'anotherbranch'. Note: you must maintain a clean working directory on your branch before switching to another branch, that means no untracked files (new files), deleted files or modified files, because if they are not committed to the current branch these files will maintain their state on the branch you switched to.
 ~~~
 $ git branch anotherbranch
+~~~
+
+To merge another branch (e.g. 'anotherbranch') to your current branch. Git will determine the merge algorithm automatically.
+~~~
+$ git merge anotherbranch
+~~~
+
+To delete a branch regardless if it is not yet fully merged.
+~~~
+$ git branch -D anotherbranch
+~~~
+
+To remove all uncommitted files like new files, deleted files, modified files and bring them back to their last commit status:
+~~~
+$ git reset --hard
 ~~~
