@@ -75,3 +75,44 @@ To remove all uncommitted files like new files, deleted files, modified files an
 ~~~
 $ git reset --hard
 ~~~
+
+
+### GULP
+
+Gulp runs a number of tasks in the background. You can choose which gulp command you need to use based on situations:
+Note: This gulp commands may change in the future as I go figure much better task implementations on certain situations.
+
+Default command, it waits for any changes on the source folder ('src/') particular files that ends with .scss, .html, .js. Then it runs precompilers and bundlers to update the pre-build files on the source so they can be tested. You need to reload the page on the browser to see the changes.
+~~~
+$ gulp
+~~~
+
+Serve command, it is same as the above but it also starts a server and allows you to see changes automatically on the internet browser of any device without reloading.
+~~~
+$ gulp serve
+~~~
+
+Gulp sass command, compiles your .scss. It only runs once, unlike the commands above where they also watch changes and re runs their tasks.
+~~~
+$ gulp sass
+~~~
+
+Gulp html command, concatenates your included .html files to main html file template, It only runs once.
+~~~
+$ gulp html
+~~~
+
+Gulp scripts command, creates bundled .js files containing all of your required .js modules. It only runs once.
+~~~
+$ gulp html
+~~~
+
+Gulp makeicons command, creates a ready to use webfont package and css classes from your svg files located in 'src/svg/' folder.
+~~~
+$ gulp makeicons
+~~~
+
+Gulp build command, finally creates or updates a folder 'build/' and puts the production version of your project. The files produced are optimized, minified and compressed so they can be small files in size.
+~~~
+$ gulp build
+~~~
