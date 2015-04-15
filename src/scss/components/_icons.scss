@@ -22,20 +22,32 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == test1 {
+	@if $filename == eb-accessibility {
 		$char: "\E001";
 	}
-	@if $filename == test2 {
+	@if $filename == eb-adaptive {
 		$char: "\E002";
 	}
-	@if $filename == test3 {
+	@if $filename == eb-analytics {
 		$char: "\E003";
 	}
-	@if $filename == test4 {
+	@if $filename == eb-application {
 		$char: "\E004";
 	}
-	@if $filename == test5 {
+	@if $filename == test1 {
 		$char: "\E005";
+	}
+	@if $filename == test2 {
+		$char: "\E006";
+	}
+	@if $filename == test3 {
+		$char: "\E007";
+	}
+	@if $filename == test4 {
+		$char: "\E008";
+	}
+	@if $filename == test5 {
+		$char: "\E009";
 	}
 
 	@return $char;
@@ -48,6 +60,18 @@
 	}
 }
 
+.icon-eb-accessibility {
+	@include icon(eb-accessibility);
+}
+.icon-eb-adaptive {
+	@include icon(eb-adaptive);
+}
+.icon-eb-analytics {
+	@include icon(eb-analytics);
+}
+.icon-eb-application {
+	@include icon(eb-application);
+}
 .icon-test1 {
 	@include icon(test1);
 }
