@@ -4,7 +4,7 @@
 * You input your commands using terminal or shell interface such as GitBash or GitShell.
 * (this is what most beginners always forgets) Make sure your command prompt is at your correct project path where its followed by 'master'. See example below:
 
-In Unix style, (gitbash/cygwin terminal) command prompts are like this:
+In linux style, (gitbash/cygwin terminal) command prompts are like this:
 ~~~
 OWNER@COMPUTERNAME-PC /D/projects/myproject (master)
 $ _
