@@ -3,6 +3,8 @@ var gulp = require('gulp'),
   browserify = require('browserify'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
+  browserSync = require('browser-sync'),
+  reload      = browserSync.reload,
   watch = require('gulp-watch'),
   runSequence = require('run-sequence'),
   minifyCSS = require('gulp-minify-css'),
@@ -85,9 +87,12 @@ gulp.task('serve', ['sass','html'], function() {
     browserSync({
         server: "./src"
     });
-    gulp.watch("src/js/main.js",['scripts']);
-    gulp.watch("src/scss/*.scss", ['sass','']);
-    gulp.watch("src/html/**/*.html", ['html']).on('change', reload);
+    //gulp.watch("src/js/main.js",['scripts']).on('change', reload);
+    //gulp.watch("src/scss/*.scss", ['sass','']).on('change', reload);
+    gulp.watch([
+      "src/html/**/*.html",
+      "src/scss/*.scss"
+    ], ['sass','html']).on('change', reload);
 });
 
 
