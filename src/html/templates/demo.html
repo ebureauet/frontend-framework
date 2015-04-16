@@ -1,18 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <!--[if lt IE 9]>
-    <script src="js/lib/html5shiv.min.js"></script>
-    <script src="js/lib/respond.min.js"></script>
-  <![endif]-->
-  <link rel="stylesheet" href="css/demo.css">
-  <title>Demo Page</title>
-</head>
-<body>
-  <div class="page">
-    <h1>Demo Page</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas excepturi accusamus tempora voluptate placeat? Similique, odit molestiae, cupiditate quam tempore voluptate quo, eos vitae inventore minima eligendi aliquam mollitia, consequuntur.</p>
+@@include('../demo/demo-top.html',{
+  "pagetitle"  : "Demo"
+})
+
+
+<div class="page container">
+  <h1>Demo Page</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas excepturi accusamus tempora voluptate placeat? Similique, odit molestiae, cupiditate quam tempore voluptate quo, eos vitae inventore minima eligendi aliquam mollitia, consequuntur.</p>
+
+  @@include("../demo/modules/block-module-one.html")
+  @@include("../demo/modules/block-module-one.html")
+  @@include("../demo/modules/block-module-one.html")
+
+  <div class="ribbon ribbon--dual">
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error praesentium similique, porro officia rem expedita dignissimos, quisquam? Suscipit, saepe, excepturi!</div>
+    <div>Quae consequuntur debitis tempore pariatur, perferendis placeat suscipit impedit dignissimos beatae! Nemo, asperiores distinctio vel mollitia nihil hic est sunt!</div>
   </div>
-</body>
-</html>
+
+  <div class="ribbon ribbon--trio">
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error praesentium similique, porro officia rem expedita dignissimos, quisquam? Suscipit, saepe, excepturi!</div>
+    <div>Quae consequuntur debitis tempore pariatur, perferendis placeat suscipit impedit dignissimos beatae! Nemo, asperiores distinctio vel mollitia nihil hic est sunt!</div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, temporibus, adipisci. Quibusdam iure, laboriosam excepturi porro eius sapiente earum consectetur.</div>
+  </div>
+
+  <ul class="nav">
+    <li class="test1">
+      <a href="">
+        <img src="" alt="">
+        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo aspernatur, praesentium quis. Nihil facere eveniet sunt autem, natus aspernatur sint placeat itaque optio molestias id. Rerum consequatur et tempore soluta!</span>
+      </a>
+    </li>
+    <li class="test2">
+      <a href="">
+        <img src="" alt="">
+        <span>Nobis distinctio incidunt, illum facere sint quaerat explicabo qui et quas sit odit enim nam ipsum fuga unde corporis voluptates tempora tenetur itaque ex? Sunt provident ut, minima et accusamus!</span>
+      </a>
+    </li>
+    <li class="test3">
+      <a href="">
+        <img src="" alt="">
+        <span>Nulla doloribus ratione molestiae esse aut, neque numquam earum consectetur dolorum cum ipsam cupiditate, adipisci cumque quo eum? Beatae, cum. Amet ab unde eaque deserunt molestiae quo similique voluptatum quisquam?</span>
+      </a>
+    </li>
+    <li class="test4">
+      <a href="">
+        <img src="" alt="">
+        <span>Voluptas quibusdam consequatur nostrum, accusantium neque eum laudantium vero perferendis, optio aperiam excepturi tempore tempora illum ut porro blanditiis numquam deserunt quas minus unde dolorum ipsam voluptatum maiores. Eveniet, sed?</span>
+      </a>
+    </li>
+    <li class="test5">
+      <a href="">
+        <img src="" alt="">
+        <span>Accusantium fugit, nihil laboriosam! Eos minima reprehenderit tenetur esse dignissimos officiis quam, praesentium recusandae facere, voluptas vel quas ducimus debitis quos inventore natus quia et perspiciatis provident sunt? Excepturi, consequatur.</span>
+      </a>
+    </li>
+  </ul>
+
+  @@include("../demo/modules/block-module-one.html")
+  
+</div>
+
+@@include('../demo/demo-bottom.html')

@@ -1,15 +1,80 @@
 //reset
 @import "normalize";
 
+//gridsystem
+@import "libs/framework-susy";
+
 *{
   box-sizing:border-box;
 }
 
 body{
-  background-color: #887070;
+  background-color: #1e1d1d;
+  font-family: "trebuchet MS", arial, sans-serif;
+  color:#fff;
 }
 
-h1{
-  text-transform:uppercase;
-  background-color:#9d9da2;
+a{
+  text-decoration:none;
+  color:#fff;
+}
+a:focus{
+  color:#fff;
+}
+
+.page{
+  @include container(90%);
+  h1{
+    text-transform:uppercase;
+    background-color:#2c2c2c;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+  }
+  p{
+    color:#fff;
+  }
+  ul{
+    li{
+      a{
+        span{
+          color:#fff;
+        }
+      }
+    }
+  }
+  .ribbon{
+    @include container(100%);
+    padding:10px 0px;
+    &.ribbon--dual{
+      div:first-child,div:last-child{
+        @include span(6);
+      }
+    }
+    &.ribbon--trio{
+      @for $r from 1 through 3{
+        div:nth-child(#{$r}){
+          @include span(4);
+        }
+      }
+    }
+  }
+  .block{
+    .block__module--one{
+      ul{
+        list-style:none;
+        padding-left:0px;
+        text-align:center;
+        background-color:#fff;
+        li{
+          width:15%;
+          display:inline-block;
+          img{
+            width:100%;
+            height:auto;
+          }
+        }
+      }
+    }
+  }
 }
