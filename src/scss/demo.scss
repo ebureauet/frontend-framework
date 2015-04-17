@@ -4,7 +4,7 @@
 //gridsystem
 @import "libs/framework-susy";
 
-@include layout(24);
+@include layout(12);
 
 
 *{
@@ -12,7 +12,7 @@
 }
 
 body{
-  background-color: #1e1d1d;
+  background-color: #85517c;
   font-family: "trebuchet MS", arial, sans-serif;
   color:#fff;
 }
@@ -62,6 +62,9 @@ a:focus{
       @for $r from 1 through 3{
         div:nth-child(#{$r}){
           @include span(4);
+          @include breakpoint($tiny){
+            @include span(12);
+          }
         }
       }
     }
