@@ -104,7 +104,7 @@ $ gulp html
 
 Gulp scripts command, creates bundled .js files containing all of your required .js modules. It only runs once.
 ~~~
-$ gulp html
+$ gulp scripts
 ~~~
 
 Gulp makeicons command, creates a ready to use webfont package and css classes from your svg files located in 'src/svg/' folder.
