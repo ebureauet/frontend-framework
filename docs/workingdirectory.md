@@ -8,7 +8,7 @@ There are subfolders inside the 'src/' folder that contains actual source files 
 
 ### HTML
 
-This is where the '.html' files are located. It has the 'templates' subfolder where the actual main html source files are located (Note: The .html files in the root of this folder are not the actual source files, they are output html files). The other subfolders may contain partial html source files that the main html source files may require.
+This is where the '.html' files are located. It has the 'templates' subfolder where the actual main html source files are located (Note: The .html files in the root of the 'src' folder are not the actual source files, they are output html files). The other subfolders may contain partial html source files that the main html source files may require.
 
 ### SCSS
 
