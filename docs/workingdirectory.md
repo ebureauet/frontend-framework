@@ -16,7 +16,7 @@ This is where the '.scss' stylesheet files are located. The SCSS folder has '.sc
 
 ### JS
 
-This is where the '.js' javascript files resides. Like the 'SCSS' folder, its main .js files are located in its root. The subfolders are containers, for example javascript plugins or third party javascript files should be located in 'src/js/lib/' folder, other '.js' files can be put inside the 'src/js/general/' folder. Use the main '.js' files to require the other javascript files in subfolders.
+This is where the '.js' javascript files resides. Like the 'SCSS' folder, its main .js files (e.g. 'main.js') are located in its root. The subfolders are containers, for example javascript plugins or third party javascript files should be located in 'src/js/lib/' folder, other '.js' files can be put inside the 'src/js/general/' folder. Use the main 'src/js/main.js' file to require the other javascript files in subfolders.
 
 ### SVG
 
@@ -53,4 +53,4 @@ The 'src/js/' folder has a file called 'main.min.js' it is actually a generated 
 
 ### STATIC .html FILES
 
-The development folder has .html files in its root (src/*.html), they are however static and are generated output based on the preprocessed source files inside the 'src/html/' folder.
+The development folder has .html files in its root (src/*.html), they are however static and are generated output based on the preprocessed source files inside the 'src/html/' folder. You use these output html files to test your project development on the browser.
