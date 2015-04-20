@@ -31,16 +31,6 @@ var notifyError = function(err, lang) {
 
 var fontName = 'Icons';
 
-gulp.task('sass', function() {
-  return gulp.src('./src/scss/{,*/}*.{scss,sass}')
-    .pipe(sourcemaps.init())
-    .pipe(sass({
-      errLogToConsole: true
-    }))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./src/css/'));
-});
-
 gulp.task('html', function() {
   return gulp.src('src/html/templates/*.html')
     .pipe(fileinclude({
@@ -52,6 +42,16 @@ gulp.task('html', function() {
     })
    .pipe(gulp.dest('src/'));
    //.pipe(reload({stream:true}));
+});
+
+gulp.task('sass', function() {
+  return gulp.src('./src/scss/{,*/}*.{scss,sass}')
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      errLogToConsole: true
+    }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./src/css/'));
 });
 
 gulp.task('sass-build', function() {
@@ -80,6 +80,19 @@ gulp.task('scripts', function() {
     .pipe(buffer())
     //.pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
     .pipe(gulp.dest('src/js'));
+    //.pipe(reload({stream:true}));
+});
+
+gulp.task('scripts-build', function() {
+  return browserify('./src/js/main.js', { debug: true })
+    .bundle()
+    .on("error", function(err) {
+      notifyError(err, "JS")
+    })
+    .pipe(source('main.min.js'))
+    .pipe(buffer())
+    .pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
+    .pipe(gulp.dest('build/js'));
     //.pipe(reload({stream:true}));
 });
 
@@ -138,9 +151,9 @@ gulp.task('makeicons', function(callback) {
 });
 
 gulp.task('img-optim', function () {
-  return gulp.src('src/img/**')
+  return gulp.src('src/images/**')
     .pipe(imagemin())
-    .pipe(gulp.dest('build/img/'));
+    .pipe(gulp.dest('build/images/'));
 });
 
 gulp.task('copy-assets', function(){
@@ -159,5 +172,5 @@ gulp.task('default', function () {
 });
 
 gulp.task('build', function(callback) {
-  runSequence('clean', 'html', 'sass-build', 'copy-assets', 'img-optim');
+  runSequence('clean', 'html', 'sass-build', 'scripts-build', 'copy-assets', 'img-optim');
 });
