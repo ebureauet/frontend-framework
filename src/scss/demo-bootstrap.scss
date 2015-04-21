@@ -1,0 +1,13 @@
+//load bootstrap css
+@import "demo-bootstrap/bootstrap";
+
+.carousel-inner{
+  .item{
+    background-position: center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    img{
+      visibility:hidden;
+    }
+  }
+}

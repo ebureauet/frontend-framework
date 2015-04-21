@@ -3,6 +3,8 @@ var gulp = require('gulp'),
   browserify = require('browserify'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
+  rename = require('gulp-rename'),
+  glob = require('glob'),
   browserSync = require('browser-sync'),
   reload      = browserSync.reload,
   watch = require('gulp-watch'),
@@ -17,7 +19,8 @@ var gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   iconfont = require('gulp-iconfont'),
   iconfontcss = require('gulp-iconfont-css'),
-  del = require('del');
+  del = require('del'),
+  es = require('event-stream');
 
 var notifyError = function(err, lang) {
   console.log(err);
@@ -70,6 +73,7 @@ gulp.task('sass-build', function() {
     .pipe(gulp.dest('./build/css/'));
 });
 
+/*
 gulp.task('scripts', function() {
   return browserify('./src/js/main.js', { debug: true })
     .bundle()
@@ -82,6 +86,25 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('src/js'));
     //.pipe(reload({stream:true}));
 });
+*/
+gulp.task('scripts', function() {
+  return glob('./src/js/main-**.js', function(err, files) {
+    var tasks = files.map(function(entry) {
+      return browserify({ entries: [entry] },{debug : true})
+        .bundle()
+        .pipe(source(entry))
+        .pipe(buffer())
+        //.pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
+        .pipe(rename({
+          prefix: 'pkgd-',
+          extname: '.min.js'
+        }))
+        .pipe(gulp.dest('.'));
+      });
+    return es.merge.apply(null, tasks);
+  })
+});
+
 
 gulp.task('scripts-build', function() {
   return browserify('./src/js/main.js', { debug: true })
