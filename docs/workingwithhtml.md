@@ -6,7 +6,7 @@ The working html source files are all located in 'src/html/' folder.
 
 Before we begin working with the html files, you must know that we are using a more modular approach in that we maintain several small markup parts (or partial html files) and render them all together into one static output html file. Similar to actual server side web content management systems where its using a template engine in which small parts of html are rendered to form a single webpage with dynamic data from a database. However, since we are building frontend (and not an actual website), we are supplying limited data only.
 
-The very idea of applying modular templating system methodology to our frontend workflow is to provide both maintainability, distributively and scalability to the project:
+The very idea of applying modular templating system methodology to our frontend workflow is to provide both maintainability, distributionally and scalability to the project:
 
 ### Maintainable
 
