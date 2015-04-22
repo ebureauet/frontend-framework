@@ -164,8 +164,11 @@ gulp.task('iconfont', function(){
     }))
     .pipe(iconfont({
       fontName: fontName,
+      fixedWidth: true,
+      centerHorizontally: true,
       normalize: true,
-      fontHeight: 1010
+      fontHeight:500,
+      descent: 0
      }))
     .pipe(gulp.dest('src/fonts/icons/'));
 });

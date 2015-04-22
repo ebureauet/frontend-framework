@@ -1,6 +1,9 @@
 //reset
 @import "normalize";
 
+//icon fonts
+@import "components/icons";
+
 //gridsystem
 @import "libs/framework-susy";
 
@@ -86,5 +89,13 @@ a:focus{
         }
       }
     }
+  }
+}
+
+ul.icon-container{
+  list-style:none;
+  padding-left:0px;
+  li{
+    display:inline-block;
   }
 }
