@@ -18,7 +18,7 @@ Adding modular approach to your workflow also opens up better collaboration betw
 
 ### Scalable
 
-When the project gets bigger this is when modular approach is best, in that it allows a project to grow without duplicating one code base to another. This is because the partial html files can be reused in another html template so as to extend its features. Your partials are the building blocks of your templates.
+When the project gets bigger this is when modular approach is best, in that it allows a project to grow without duplicating one code base to another. This is because the partial html files can be reused in another html template so as to extend its features. Your partials are the building blocks of your templates. This is adding a lot of flexibility to your frontend workflow.
 
 Overall, the sum of all the advantages mentioned above can greatly enhance the frontend workflow against the traditional development process wherein frontend static html pages are developed in single files rather than having parts of it separated.
 
@@ -76,6 +76,8 @@ src/html/templates/demo.html
 @@include('../general/document-bottom.html')
 ~~~
 
+### Generating Output HTML
+
 Now, that we included the 'document-bottom.html' then let's see the output by typing and entering this line 'gulp html' to your command prompt:
 ~~~
 TEEJAY@TEEJAY-PC /C/wamp/www/website-starter (master)
@@ -121,3 +123,143 @@ src/html/templates/demo.html
 ~~~
 
 Remember, just because you can use partials at anytime it doesn't mean you should. It also still goes down to how well you structure your markups so that it can also be scalable without running into problems later on.
+
+## Advanced
+
+### Use Variables
+
+The '@@include()' directive can also accept secondary parameter for variables, you can put in a 'list map' which is like an array variable or json that has 'key':'value' pairs as items. Here is the most basic usage of a variable:
+
+src/html/templates/demo.html
+~~~
+@@include('../general/document-top.html',{
+  "doc-title" : "My Demo Page"
+})
+@@include('../general/document-bottom.html')
+~~~
+As you can see we added a second parameter to the first '@@include' directive, enclosed with '{}' is our variable called 'doc-title' and its value 'My Demo Page'. This variable will then be passed to the file to be include which is '../general/document-top.html', this file can now use the 'doc-title' variable anywhere in its markup by prefixing it with '@@' so for example you put `@@doc-title` on the title tag of your html document, like so:
+
+src/html/general/document-top.html
+~~~
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>@@doc-title</title>
+  <!--[if lt IE 9]>
+    <script src="js/lib/html5shiv.min.js"></script>
+    <script src="js/lib/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page">
+~~~
+The line `<title>@@doc-title</doc>` will become `<title>My Demo Page</title>` on the output html.
+
+### Modular Templating using Variables
+
+Now, this is the best part of it. We are going to use multiple variables as storage to a static data that we can use and put them into a partial html markup. Let's take this demo-bootstrap partial html called 'featurettes.html'
+
+src/demo-bootstrap/partials/featurettes.html
+~~~
+<!-- START THE FEATURETTES -->
+
+<hr class="featurette-divider">
+
+@@include('../partials/_featurette-a.html')
+
+<hr class="featurette-divider">
+
+@@include('../partials/_featurette-b.html')
+
+<hr class="featurette-divider">
+
+@@include('../partials/_featurette-c.html')
+
+<hr class="featurette-divider">
+
+<!-- /END THE FEATURETTES -->
+~~~
+As you can see, this partial includes another three smaller partials: '_featurette-a.html', '_featurette-b.html' and '_featurette-c.html', these three have the very same markups except only same differences on class names, texts and image urls.
+
+src/demo-bootstrap/partials/_featurette-a.html
+~~~
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+  </div>
+  <div class="col-md-5">
+    <img class="featurette-image img-responsive center-block" src="https://placeimg.com/500/500/nature/sepia" alt="Generic placeholder image">
+  </div>
+</div>
+~~~
+
+And that's how the markup looks like. Now, what if we could just reuse this markup, put it into a partial file and then let it use variables so its contents can be changed. That's a great idea!, that means we won't need to have three versions of this markup having static data on them, even more, we could reuse this markup not just three times but any number of times as we like.
+
+So let's make a more flexible partial html file using the original markup, let's just name it '_featurette.html' (just without the hyphened letters), and then let's replace the parts that needs to be dynamic with the variable directive '@@var' like this:
+
+src/demo-bootstrap/partials/_featurette.html
+~~~
+<div class="row featurette">
+  <div class="@@class-grid1">
+    <h2 class="featurette-heading">@@heading</h2>
+    <p class="lead">@@paragraph</p>
+  </div>
+  <div class="@@class-grid2">
+    <img class="featurette-image img-responsive center-block" src="@@image-url" alt="Generic placeholder image">
+  </div>
+</div>
+~~~
+
+We inserted 4 variables in there, namely: 'class-grid1', 'class-grid2', 'heading', 'paragraph' and 'image-url'. Now, let's go back to our 'featurettes.html' partial where we will replace the three old static partials:
+
+* _featurette-a.html
+* _featurette-b.html
+* _featurette-c.html
+
+with our new dynamic partial '_featurette.html' that's using variables
+
+src/demo-bootstrap/partials/featurettes.html
+~~~
+<!-- START THE FEATURETTES -->
+
+<hr class="featurette-divider">
+
+@@include('../partials/_featurette.html',{
+    "class-grid1" : "col-md-7",
+    "class-grid2" : "col-md-5",
+    "heading"     : "First featurette heading. <span class=&quot;text-muted&quot;>It'll blow your mind.</span>",
+    "paragraph"   : "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
+    "image-url"   : "https://placeimg.com/500/500/nature/sepia"
+})
+
+<hr class="featurette-divider">
+
+@@include('../partials/_featurette.html',{
+    "class-grid1" : "col-md-7 col-md-push-5",
+    "class-grid2" : "col-md-5 col-md-pull-7",
+    "heading"     : "Oh yeah, it's that good. <span class=&quot;text-muted&quot;>See for yourself.</span>",
+    "paragraph"   : "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
+    "image-url"   : "https://placeimg.com/500/500/animals/sepia"
+})
+
+<hr class="featurette-divider">
+
+@@include('../partials/_featurette.html',{
+    "class-grid1" : "col-md-7",
+    "class-grid2" : "col-md-5",
+    "heading"     : "And lastly, this one. <span class=&quot;text-muted&quot;>Checkmate.</span>",
+    "paragraph"   : "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
+    "image-url"   : "https://placeimg.com/500/500/people/sepia"
+})
+
+<hr class="featurette-divider">
+
+<!-- /END THE FEATURETTES -->
+~~~
+
+Great! it worked. Now, the source codes looks a little bit longer, but this method is much more flexible than doing multiple static partial htmls.
+
+Note: You have to escape all the double quotes sign " when you have them as variable values. Use `&quot;` to escape " .
