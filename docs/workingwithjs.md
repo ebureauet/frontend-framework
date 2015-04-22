@@ -72,7 +72,7 @@ require('./lib/custom.js');
 ~~~
 The first 'require()' is accessing a bower package called 'bootstrap', you can notice the path `'../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js'` is relative to the 'src/js' folder. It is important that the paths you specify to the .js files are correct.
 
-You can also use 'require()' on other js files other than the base js file. for example on the 'carousel.js', you can reference the main carousel javascript (e.g. 'owl.carousel.js') plugin by using 'require()' and then add the configuation codes for to initialize it.
+You can also use 'require()' on the other js files other than the base js file. for example on the 'carousel.js', you can reference the main carousel javascript (e.g. 'owl.carousel.js') plugin by using 'require()' and then add the configuation codes for to initialize it.
 
 (src/js/lib/carousel.js)
 ~~~
@@ -96,3 +96,18 @@ $('.owl-carousel').owlCarousel({
 })
 ~~~
 The 'owl.carousel.js' is actually a bower package as well, so in the 'require()' we specify the correct file path to it. The code blocks below are for initializing the carousel plugin to make it actually work with your own custom configurations, as you would do in a 'custom.js' script file.
+
+This is a powerful way to make your javascript files usage flexible and modularized.
+
+#### The Output JS file
+
+There is one important thing you have to do next to start bundling these javascript files. And that is by typing and entering this command:
+~~~
+$ gulp scripts
+~~~
+This will run the 'Browserify' task that will generate the sourcemap and ofcourse bundle all the required javascripts into one packaged file. The output file will be created alongside your base javascript (e.g. 'src/js/main-demo.js') with a filename of ('src/js/pkgd-main-demo.min.js'). It added the 'pkgd-' as a prefix, and then the '.min.js' as the extension of the filename. You can now reference this file to your html like so:
+~~~
+<script src="src/js/jquery.js">
+<script src="src/js/pkgd-main.min.js">
+~~~
+Note: for now, the jquery plugin shouldn't be bundled yet. It will change in the future though, so that every javascript files your project depends on will be on one `<script>` tag only.
