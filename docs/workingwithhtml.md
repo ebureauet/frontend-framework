@@ -126,6 +126,8 @@ Remember, just because you can use partials at anytime it doesn't mean you shoul
 
 ## Advanced
 
+Now, let's take it a little bit further by doing some cool stuff we can never dreamed of doing when editing html in traditional way.
+
 ### Use Variables
 
 The '@@include()' directive can also accept secondary parameter for variables, you can put in a 'list map' which is like an array variable or json that has 'key':'value' pairs as items. Here is the most basic usage of a variable:
@@ -159,7 +161,7 @@ The line `<title>@@doc-title</doc>` will become `<title>My Demo Page</title>` on
 
 ### Modular Templating using Variables
 
-Now, this is the best part of it. We are going to use multiple variables as storage to a static data that we can use and put them into a partial html markup. Let's take this demo-bootstrap partial html called 'featurettes.html'
+This is the best part of it, we are going to use multiple variables as storage for data that we can use and put into a partial html markup. Let's take this demo-bootstrap partial html called 'featurettes.html'
 
 src/demo-bootstrap/partials/featurettes.html
 ~~~
@@ -181,7 +183,7 @@ src/demo-bootstrap/partials/featurettes.html
 
 <!-- /END THE FEATURETTES -->
 ~~~
-As you can see, this partial includes another three smaller partials: '_featurette-a.html', '_featurette-b.html' and '_featurette-c.html', these three have the very same markups except only same differences on class names, texts and image urls.
+As you can see, this partial includes another three smaller partials: '_featurette-a.html', '_featurette-b.html' and '_featurette-c.html', these three have the very same markups except only some differences on class names, texts and image urls.
 
 src/demo-bootstrap/partials/_featurette-a.html
 ~~~
@@ -196,7 +198,7 @@ src/demo-bootstrap/partials/_featurette-a.html
 </div>
 ~~~
 
-And that's how the markup looks like. Now, what if we could just reuse this markup, put it into a partial file and then let it use variables so its contents can be changed. That's a great idea!, that means we won't need to have three versions of this markup having static data on them, even more, we could reuse this markup not just three times but any number of times as we like.
+And that's how the markup looks like. Now, what if we could just reuse this markup, put it into a partial file and then let it use variables so its contents can be changed. That's a great idea!, that means we won't need to have three versions of this markup having static data on them, even more so, we could reuse this markup not just three times but any number of times as we like.
 
 So let's make a more flexible partial html file using the original markup, let's just name it '_featurette.html' (just without the hyphened letters), and then let's replace the parts that needs to be dynamic with the variable directive '@@var' like this:
 
@@ -213,7 +215,7 @@ src/demo-bootstrap/partials/_featurette.html
 </div>
 ~~~
 
-We inserted 4 variables in there, namely: 'class-grid1', 'class-grid2', 'heading', 'paragraph' and 'image-url'. Now, let's go back to our 'featurettes.html' partial where we will replace the three old static partials:
+We inserted 5 variables in there, namely: 'class-grid1', 'class-grid2', 'heading', 'paragraph' and 'image-url'. Now, let's go back to our 'featurettes.html' partial where we will replace the three old static partials:
 
 * _featurette-a.html
 * _featurette-b.html
@@ -230,7 +232,7 @@ src/demo-bootstrap/partials/featurettes.html
 @@include('../partials/_featurette.html',{
     "class-grid1" : "col-md-7",
     "class-grid2" : "col-md-5",
-    "heading"     : "First featurette heading. <span class=&quot;text-muted&quot;>It'll blow your mind.</span>",
+    "heading"     : "First featurette heading. <span class='text-muted'>It'll blow your mind.</span>",
     "paragraph"   : "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
     "image-url"   : "https://placeimg.com/500/500/nature/sepia"
 })
@@ -240,7 +242,7 @@ src/demo-bootstrap/partials/featurettes.html
 @@include('../partials/_featurette.html',{
     "class-grid1" : "col-md-7 col-md-push-5",
     "class-grid2" : "col-md-5 col-md-pull-7",
-    "heading"     : "Oh yeah, it's that good. <span class=&quot;text-muted&quot;>See for yourself.</span>",
+    "heading"     : "Oh yeah, it's that good. <span class='text-muted'>See for yourself.</span>",
     "paragraph"   : "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
     "image-url"   : "https://placeimg.com/500/500/animals/sepia"
 })
@@ -250,7 +252,7 @@ src/demo-bootstrap/partials/featurettes.html
 @@include('../partials/_featurette.html',{
     "class-grid1" : "col-md-7",
     "class-grid2" : "col-md-5",
-    "heading"     : "And lastly, this one. <span class=&quot;text-muted&quot;>Checkmate.</span>",
+    "heading"     : "And lastly, this one. <span class='text-muted'>Checkmate.</span>",
     "paragraph"   : "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
     "image-url"   : "https://placeimg.com/500/500/people/sepia"
 })
@@ -262,4 +264,4 @@ src/demo-bootstrap/partials/featurettes.html
 
 Great! it worked. Now, the source codes looks a little bit longer, but this method is much more flexible than doing multiple static partial htmls.
 
-Note: You have to escape all the double quotes sign " when you have them as variable values. Use `&quot;` to escape " .
+Note: If your variable value contains html tags that contains double-quotes like `<span class="my-class">`, then you need to replace the double-quotes `"` with single-quotes `'` instead so the gulp task won't report any errors.
