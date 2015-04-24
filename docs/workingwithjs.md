@@ -43,9 +43,9 @@ There are advantages upon using Browserify for bundling your javascripts into on
 
 First, you need to create your base .js file in 'src/js/' folder, you can name this file 'main-demo.js' or any name enough to remind you that it is the bundle version of all your javascript files.
 
-#### Your other JS files
+#### Your JS LIB files
 
-Now, these files are the javascript files that your project depends on; like 'jquery', 'validate.js', 'bootstrap.js' and your config or initialize scripts file 'custom.js'. You should store them to a subfolder inside 'src/js/', so for example, if these js files are library or plugin scripts then its appropriate to store them in a subfolder called 'src/js/lib/'. You can create any subfolder as long as their names are appropriate to what they must contain.  
+Now, these files are the javascript files that your project depends on; like 'validate.js', 'bootstrap.js' and your config or initialize scripts file 'custom.js'. You should store them to a subfolder inside 'src/js/', so for example, if these js files are library or plugin scripts then its appropriate to store them in a subfolder called 'src/js/lib/'. You can create any subfolder as long as their names are appropriate to what they must contain.  
 
 #### Bower JS files
 
@@ -111,3 +111,7 @@ This will run the 'Browserify' task that will generate the sourcemap and ofcours
 <script src="src/js/pkgd-main.min.js">
 ~~~
 Note: for now, the jquery plugin shouldn't be bundled yet. It will change in the future though, so that every javascript files your project depends on will be on one `<script>` tag only.
+
+#### Your JS Assets files
+
+When not all of js 'src/js/lib/' files can't be packaged, there is a folder called 'src/js/assets' for putting in files that cannot be bundled (they have errors when running the webpage), that one particular js file we often use is Jquery. So for now put jquery.js into the 'src/js/assets/' folder and call it traditionally using `<script>` tag. You can also put other js files that required to be called separately, e.g. js files that needs to be put into the head tag of the html document rather than the bottom; such js files like 'modernizr.js', 'html5shim.js' and 'respond.js'. 
