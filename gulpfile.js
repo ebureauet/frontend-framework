@@ -106,18 +106,22 @@ gulp.task('scripts', function() {
   })
 });
 
-
 gulp.task('scripts-build', function() {
-  return browserify('./src/js/main.js', { debug: true })
-    .bundle()
-    .on("error", function(err) {
-      notifyError(err, "JS")
-    })
-    .pipe(source('main.min.js'))
-    .pipe(buffer())
-    .pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
-    .pipe(gulp.dest('build/js'));
-    //.pipe(reload({stream:true}));
+  return glob('./src/js/main-**.js', function(err, files) {
+    var tasks = files.map(function(entry) {
+      return browserify({ entries: [entry] },{debug : false})
+        .bundle()
+        .pipe(source(entry))
+        .pipe(buffer())
+        .pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
+        .pipe(rename({
+          prefix: 'pkgd-',
+          extname: '.min.js'
+        }))
+        .pipe(gulp.dest('.'));
+      });
+    return es.merge.apply(null, tasks);
+  })
 });
 
 gulp.task('serve', ['sass','html'], function() {
@@ -178,13 +182,13 @@ gulp.task('makeicons', function(callback) {
 });
 
 gulp.task('img-optim', function () {
-  return gulp.src('src/images/**')
+  return gulp.src('src/images/{,*/}*.{jpg,gif,png}')
     .pipe(imagemin())
     .pipe(gulp.dest('build/images/'));
 });
 
 gulp.task('copy-assets', function(){
-  return gulp.src(['src/*.html', 'src/fonts/**', 'src/js/lib/**'], {base: "./src"})
+  return gulp.src(['src/*.html', 'src/fonts/**', 'src/js/pkgd-**.min.js', 'src/js/assets/**', 'src/images/{,*/}*.{svg,ico}'], {base: "./src"})
     .pipe(gulp.dest('build'));
 });
 
@@ -199,5 +203,5 @@ gulp.task('default', function () {
 });
 
 gulp.task('build', function(callback) {
-  runSequence('clean', 'html', 'sass-build', 'scripts-build', 'copy-assets', 'img-optim');
+  runSequence('clean', 'html', 'sass-build', 'copy-assets', 'scripts-build', 'img-optim');
 });

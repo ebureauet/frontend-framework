@@ -9,7 +9,7 @@ bower_components
 build
 src/*.html
 src/default.css
-src/js/pkgd**.js
+src/js/pkgd**.min.js
 src/css
 src/fonts/icons
 src/index.html
