@@ -43,21 +43,37 @@ $ npm install -g node-gyp
 
 ### Starting Your New Project
 
-If you wish to use this as a foundation to your new project then you will need to fork this repository, by doing so it will create a copy of this repository on your github account (note: the cloned repository will be open to public), at this point you should rename the cloned repository to a new name of your project.
+If you wish to use this as a foundation to your new project without cloning or forking (your project will still be tied to this original master repository) but having your repository independent from this starter kit's updates, then you will need to use "Download ZIP" and extract the folder 'website-starter-master/'. You must rename this folder to the new project name you like. Next, if you have installed Git Bash you can right-click on your project folder and choose 'Git Bash' or 'Git Bash here'. It will open the command prompt where you should type and enter this:
+~~~
+$ git init
+~~~
+At this point you now have your own git local repository, next thing to do is add and commit the contents of your folder by doing this:
+~~~
+$ git add --all
+$ git commit -m "My first commit"
+~~~
+
+Now, go back to your github.com account and create a new repository bearing the same name as your new project folder. Then follow the steps about "push an existing repository from the command line". It goes like this: (Note: Change `demo-user` to your github account name, and change `demo-project` to name of the new project folder)
+~~~
+$ git remote add origin https://github.com/demo-user/demo-project.git
+$ git push -u origin master
+~~~
+By doing so it will link your local repository on your github account as your remote repository. Which you can now push your files to your github account:
+~~~
+$ git push origin master
+~~~
 
 If you want to contribute and help me improve this 'Website Starter' project. Just clone this repository to your local without forking and ask a request to make you an authorized contributor, so you can write changes to this repo.
 
-### Setting Up Local Repository
+### Setting Up the Project Workflow
 
-1. Clone your new project repository (copy url from the 'HTTPS clone URL' on the github sidebar)
-~~~
-$ git clone https://github.com/teej043/your-new-project.git
-~~~
-2. Install Node dependencies
+Now, that your repository is created you must next set up the project workflow system by doing the following:
+
+1. Install Node dependencies
 ~~~
 $ npm install
 ~~~
-3. Install Bower dependencies
+2. Install Bower dependencies
 ~~~
 $ bower install
 ~~~
@@ -71,3 +87,13 @@ $ gulp
 ~~~
 
 That's it!
+
+## Browse the Documentations:
+
+* [About](https://github.com/ebureauet/website-starter/blob/master/docs/documentation.md)
+* [Cheat Sheets](https://github.com/ebureauet/website-starter/blob/master/docs/thecheatsheets.md)
+* [Working Folders](https://github.com/ebureauet/website-starter/blob/master/docs/workingdirectory.md)
+* [Working with HTML](https://github.com/ebureauet/website-starter/blob/master/docs/workingwithhtml.md)
+* [Working with SASS](https://github.com/ebureauet/website-starter/blob/master/docs/workingwithsass.md)
+* [Working with JS](https://github.com/ebureauet/website-starter/blob/master/docs/workingwithjs.md)
+* [Working with Icon Fonts](https://github.com/ebureauet/website-starter/blob/master/docs/workingwithiconfonts.md)
