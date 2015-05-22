@@ -16,7 +16,10 @@
     "breakpoint-sass": "~2.5.0",
     "susy": "~2.2.2",
     "bootstrap-sass": "~3.3.4",
-    "owl.carousel": "smashingboxes/OwlCarousel2"
+    "owl.carousel": "smashingboxes/OwlCarousel2",
+    "fontawesome": "~4.3.0",
+    "awesome-bootstrap-checkbox": "~0.3.4",
+    "bootstrap-sass-official": "~3.3.4"
   },
   "devDependencies": {
     "breakpoint-sass": "~2.5.0"
