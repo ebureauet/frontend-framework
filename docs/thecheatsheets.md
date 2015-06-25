@@ -76,6 +76,11 @@ To remove all uncommitted files like new files, deleted files, modified files an
 $ git reset --hard
 ~~~
 
+To sync from remote repository using "theirs" merge strategy (To auto-merge without conflicts):
+~~~
+$ git pull -X theirs
+~~~
+
 
 ### GULP
 
