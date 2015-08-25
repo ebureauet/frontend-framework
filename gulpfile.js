@@ -180,6 +180,29 @@ gulp.task('makeicons', function(callback) {
   runSequence('iconfont', 'sass', 'html');
 });
 
+gulp.task('sprite', function () {
+  var spriteData = gulp.src('./src/images/sprite/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: '_sprite.scss'
+  }));
+
+  // Pipe image stream through image optimizer and onto disk
+  var imgStream = spriteData.img
+    .pipe(gulp.dest('./src/images/sprite/'));
+
+  // Pipe CSS stream through CSS optimizer and onto disk
+  var cssStream = spriteData.css
+    .pipe(gulp.dest('./src/scss/utils/'));
+
+  return merge(imgStream, cssStream);
+});
+
+gulp.task('svg2png', function () {
+  return gulp.src('src/images/{,*/}*.svg')
+    .pipe(svg2png())
+    .pipe(gulp.dest('src/images/'));
+});
+
 gulp.task('img-optim', function () {
   return gulp.src('src/images/**/{,*/}*.{jpg,gif,png}')
     .pipe(imagemin({

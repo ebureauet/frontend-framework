@@ -7,9 +7,11 @@ npm-debug.log
 node_modules
 bower_components
 build
+*.bak
 src/*.html
 src/default.css
 src/js/pkgd**.min.js
 src/css
 src/fonts/icons
 src/index.html
+src/scss/utils/_sprite.scss
