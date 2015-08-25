@@ -19,6 +19,8 @@ This is a starter project template for use by E-bureauet frontend developers.
 11. Icon Font Generation
 12. BrowserSync
 13. Notifier
+14. Sprite Generation
+15. SVG to PNG
 
 ### Production
 

@@ -1,7 +1,24 @@
 {
   "name": "website-starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "Static HTML Frontend Framework",
+  "author": "Timmini Joseph De Guzman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebureauet/frontend-framework/issues"
+  },
+  "keywords": [
+    "frontend",
+    "gulp",
+    "build",
+    "source",
+    "sass",
+    "html",
+    "static",
+    "sprite",
+    "iconfont"
+  ],
+  "homepage": "https://github.com/ebureauet/frontend-framework",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
@@ -13,7 +30,7 @@
     "glob": "^5.0.5",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
-    "gulp-file-include": "^0.9.0",
+    "gulp-file-include": "^0.13.7",
     "gulp-htmlhint": "^0.1.1",
     "gulp-iconfont": "^1.0.0",
     "gulp-iconfont-css": "0.0.9",
@@ -25,13 +42,16 @@
     "gulp-sourcemaps": "^1.5.0",
     "gulp-uglify": "^1.1.0",
     "gulp-watch": "^4.2.3",
+    "gulp-svg2png": "^0.3.0",
+    "gulp.spritesmith": "^4.0.0",
+    "merge-stream": "^1.0.0",
     "run-sequence": "^1.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/teej043/website-starter.git"
+    "url": "git://github.com/ebureauet/frontend-framework.git"
   },
   "browser": {
     "jquery": "./bower_components/jquery/dist/jquery.js",

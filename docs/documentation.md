@@ -43,6 +43,14 @@ From the emergence of Flat UI designs and higher mobile display resolutions (ret
 
 So I added an ability to the workflow to generate icon fonts easily, all you need to do is obtain or create your .svg files and put them to the svg folder. The build system will handle the process of combining these svg files into web font formats ('woff', 'ttf', 'eot') and generate the .scss file to create classes ('.icon--logo') making it easily available for you when you want to use them in your html page.
 
+### SVG to png
+
+A utility is also available for converting SVG files into PNGs. This primarily for fallback purposes with browsers that do not fully support SVGs.
+
+### Sprite Generation
+
+Manually creating sprites from multiple images is a pain, this tool on the other hand makes it all easy to create sprite sheet as it automatically creates sass variables to store widths, heights as well positions relative the sprite sheet file. Updating, removing and adding images into the sprite is very easy with this tool.
+
 ### Multi-Device Testing
 
 Allows you to see the changes concurrently on every browsers and devices (other computers, iPad, smartphones) accessing the webpage you're working on.
