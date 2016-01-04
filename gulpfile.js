@@ -9,7 +9,8 @@ var gulp = require('gulp'),
   reload      = browserSync.reload,
   watch = require('gulp-watch'),
   runSequence = require('run-sequence'),
-  minifyCSS = require('gulp-minify-css'),
+  // deprecated : minifyCSS = require('gulp-minify-css'),
+  nano = require('gulp-cssnano'),
   uglify = require('gulp-uglify'),
   notify = require('gulp-notify'),
   autoprefixer = require('gulp-autoprefixer'),
@@ -69,7 +70,7 @@ gulp.task('sass-build', function() {
       browsers: ['ie 9', 'Android 3', 'firefox 20', 'last 2 versions'],
       cascade: false
     }))
-    .pipe(minifyCSS())
+    .pipe(nano())
     .pipe(gulp.dest('./build/css/'));
 });
 
