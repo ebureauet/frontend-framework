@@ -10,7 +10,7 @@ build
 *.bak
 src/*.html
 src/default.css
-src/js/pkgd**.min.js
+src/js/pkgd-*.min.js
 src/css
 src/fonts/icons
 src/index.html

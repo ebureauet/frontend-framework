@@ -70,7 +70,7 @@ gulp.task('sass-build', function() {
       browsers: ['ie 9', 'Android 3', 'firefox 20', 'last 2 versions'],
       cascade: false
     }))
-    .pipe(nano())
+    .pipe(nano({autoprefixer: {browsers: 'last 2 version, IE 9'}}))
     .pipe(gulp.dest('./build/css/'));
 });
 
