@@ -36,7 +36,7 @@ This is a starter project template for use by E-bureauet frontend developers.
 * Git Commandline Tools
   * GitBash [download link](http://git-scm.com/downloads)
   * GitShell [download link (also has windows gui of github)](https://windows.github.com/index.html)
-* Phyton [download link](https://www.python.org/downloads/) (required for browsersync)
+* Python [download link](https://www.python.org/downloads/) (required for browsersync)
 * Visual Studio 2013 update 4 (required for browsersync and libsass)
 * Install Node-GYP (required by libsass)
 ~~~
