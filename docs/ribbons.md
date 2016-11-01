@@ -57,8 +57,6 @@ This block should also have to incorporate the grid system as this row should by
 * It is important that this block will live indepedently across any other ribbon parents i.e. become modular
 * This block should always have its own style in component level (so to achieve ["separation of concerns"](https://en.wikipedia.org/wiki/Separation_of_concerns))
 * Parent ribbon block can change the style if so needed as requirement 
-* This block needs to be a "row" as equivalent to bootstrap ".row" class, therefore the child nodes should be columns
-* If this block needs to be a "container" as equivalent to bootstrap ".container" or ".container-fluid" then do so as long as the child node is a ".row"
 ~~~
 SASS:
 .r--ribbonname{
@@ -68,3 +66,6 @@ SASS:
 	}
 }
 ~~~
+* This block needs to be a "row" as equivalent to bootstrap ".row" class, therefore the child nodes should be columns
+* If this block needs to be a "container" as equivalent to bootstrap ".container" or ".container-fluid" then do so as long as the child node is a ".row"
+
